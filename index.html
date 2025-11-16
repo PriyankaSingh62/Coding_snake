@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="snake-loader"></div>
+            <h2>Loading Snake Game...</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Menu -->
+    <div id="mainMenu" class="main-menu">
+        <div class="menu-container">
+            <h1 class="game-title">
+                <span class="title-snake">SNAKE</span>
+                <span class="title-game">GAME</span>
+            </h1>
+            <div class="menu-options">
+                <button id="classicMode" class="menu-btn">🐍 Classic Mode</button>
+                <button id="speedMode" class="menu-btn">⚡ Speed Mode</button>
+                <button id="wallMode" class="menu-btn">🧱 Wall Mode</button>
+                <button id="settingsBtn" class="menu-btn">⚙️ Settings</button>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">High Score</span>
+                    <span id="menuHighScore" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Games Played</span>
+                    <span id="gamesPlayed" class="stat-value">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="game-screen">
+        <div class="game-header">
+            <div class="score-display">
+                <div class="score-item">
+                    <span class="score-label">Score</span>
+                    <span id="currentScore" class="score-value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">High</span>
+                    <span id="gameHighScore" class="score-value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">Time</span>
+                    <span id="gameTime" class="score-value">0:00</span>
+                </div>
+            </div>
+            <div class="game-controls">
+                <button id="pauseGameBtn" class="control-btn">⏸️</button>
+                <button id="soundToggle" class="control-btn">🔊</button>
+                <button id="exitGame" class="control-btn">❌</button>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <canvas id="gameCanvas" width="600" height="400"></canvas>
+            <div id="gameOverlay" class="game-overlay">
+                <div class="overlay-content">
+                    <h2 id="overlayTitle">Game Paused</h2>
+                    <p id="overlayMessage">Press SPACE to continue</p>
+                    <div class="overlay-buttons">
+                        <button id="overlayPrimaryBtn" class="overlay-btn">Resume</button>
+                        <button id="overlaySecondaryBtn" class="overlay-btn secondary">Main Menu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-footer">
+            <div class="progress-bar">
+                <div id="speedProgress" class="progress-fill"></div>
+            </div>
+            <div class="controls-help">
+                <span>🎮 Use Arrow Keys or WASD to move</span>
+                <span>⏸️ Press SPACE to pause</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <h2>Game Settings</h2>
+            <div class="setting-group">
+                <label>Difficulty:</label>
+                <select id="difficultySelect">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label>Sound Effects:</label>
+                <input type="checkbox" id="soundEffects" checked>
+            </div>
+            <div class="setting-group">
+                <label>Background Music:</label>
+                <input type="checkbox" id="backgroundMusic" checked>
+            </div>
+            <div class="setting-group">
+                <label>Game Speed:</label>
+                <input type="range" id="gameSpeed" min="50" max="200" value="100">
+            </div>
+            <div class="modal-buttons">
+                <button id="saveSettings" class="modal-btn">Save</button>
+                <button id="cancelSettings" class="modal-btn secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
